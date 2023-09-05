@@ -1,6 +1,7 @@
 package com.gsm.networking
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
@@ -14,6 +15,7 @@ class MainActivity : ComponentActivity() {
         val mainViewModel = MainViewModel()
         val webViewClient = CustomWebViewClient(this)
         val webChromeClient = AccompanistWebChromeClient()
+        var waitTime = 0L
         setContent {
             val webViewState = mainViewModel.webViewState
             val webViewNavigator = mainViewModel.webViewNavigator
@@ -38,7 +40,12 @@ class MainActivity : ComponentActivity() {
                     if (webViewNavigator.canGoBack) {
                         webViewNavigator.navigateBack()
                     } else {
-                        finish()
+                        if(System.currentTimeMillis() - waitTime >=1500 ) {
+                            waitTime = System.currentTimeMillis()
+                            Toast.makeText(this,"뒤로가기 버튼을 한번 더 누르면 종료됩니다.",Toast.LENGTH_SHORT).show()
+                        } else {
+                            finish()
+                        }
                     }
                 }
             }
