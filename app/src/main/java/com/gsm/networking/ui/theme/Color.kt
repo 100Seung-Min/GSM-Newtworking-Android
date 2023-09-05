@@ -1,4 +1,4 @@
-package com.hyeongrok.spongebob.ui.theme
+package com.gsm.networking.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

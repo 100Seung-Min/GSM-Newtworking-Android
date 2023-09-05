@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.hyeongrok.spongebob"
+    namespace = "com.gsm.networking"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.hyeongrok.spongebob"
+        applicationId = "com.gsm.networking"
         minSdk = 28
         targetSdk = 33
         versionCode = 1

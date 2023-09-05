@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "SpongeBob"
+rootProject.name = "GSM-Networking"
 include(":app")
