@@ -23,7 +23,7 @@ class CustomWebViewClient(private val context: Context) : AccompanistWebViewClie
                 data = request?.url
             }
         } else if (request?.url.toString().contains("https://gsm.moip.shop/")) {
-            null
+            return super.shouldOverrideUrlLoading(view, request)
         } else {
             Intent(Intent.ACTION_VIEW, request?.url)
         }
