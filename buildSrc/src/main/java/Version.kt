@@ -7,7 +7,7 @@ object Version {
     const val VERSION_CODE = 1
     const val VERSION_NAME = "1.0.0"
 
-    val JAVA_VERSION = JavaVersion.VERSION_1_8
+    val JAVA_VERSION = JavaVersion.VERSION_17
 
     const val GRADLE_ANDROID = "7.4.2"
     const val GRADLE_KOTLIN = "1.8.10"
