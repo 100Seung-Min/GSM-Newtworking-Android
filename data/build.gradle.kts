@@ -44,6 +44,8 @@ dependencies {
 
     implementation(Dependency.JavaX.INJECT)
 
+    implementation(Dependency.Kotlin.COROUTINES_CORE)
+
     implementation(Dependency.Retrofit.RETROFIT)
     implementation(Dependency.Retrofit.RETROFIT_CONVERTER_GSON)
     implementation(Dependency.Retrofit.OKHTTP)
