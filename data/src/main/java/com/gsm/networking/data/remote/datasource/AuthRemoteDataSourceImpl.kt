@@ -11,4 +11,8 @@ class AuthRemoteDataSourceImpl @Inject constructor(
     override suspend fun signIn(code: String): SignInResponse = safeAPICall {
         authAPI.signIn(code = code)
     }
+
+    override suspend fun refresh(refreshToken: String): SignInResponse = safeAPICall {
+        authAPI.refresh(refreshToken = "Bearer $refreshToken")
+    }
 }

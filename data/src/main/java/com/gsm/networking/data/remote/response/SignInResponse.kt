@@ -1,6 +1,7 @@
 package com.gsm.networking.data.remote.response
 
 import com.google.gson.annotations.SerializedName
+import com.gsm.networking.data.local.datasource.AuthLocalDataSource
 import com.gsm.networking.domain.entity.SignInEntity
 
 data class SignInResponse(
@@ -14,9 +15,18 @@ data class SignInResponse(
     val refreshTokenExp: String,
 )
 
-fun SignInResponse.toEntity() = SignInEntity(
-    accessToken = accessToken,
-    refreshToken = refreshToken,
-    accessTokenExp = accessTokenExp,
-    refreshTokenExp = refreshTokenExp
-)
+fun SignInResponse.toSaveEntity(authLocalDataSource: AuthLocalDataSource): SignInEntity {
+    val entity = SignInEntity(
+        accessToken = accessToken,
+        refreshToken = refreshToken,
+        accessTokenExp = accessTokenExp,
+        refreshTokenExp = refreshTokenExp
+    )
+    with(authLocalDataSource) {
+        saveAccessToken(entity.accessToken)
+        saveRefreshToken(entity.refreshToken)
+        saveAccessExpiredAt(entity.accessTokenExp)
+        saveRefreshExpiredAt(entity.refreshTokenExp)
+    }
+    return entity
+}
