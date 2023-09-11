@@ -1,5 +1,7 @@
 package com.gsm.networking.domain.repository
 
+import com.gsm.networking.domain.entity.SignInEntity
+
 interface AuthRepository {
-    suspend fun signIn(code: String)
+    suspend fun signIn(code: String): SignInEntity
 }
