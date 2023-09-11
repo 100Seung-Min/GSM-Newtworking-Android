@@ -1,6 +1,7 @@
 package com.gsm.networking.ui.main
 
 import android.os.Bundle
+import android.webkit.CookieManager
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
@@ -20,6 +21,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val webViewClient = CustomWebViewClient(this)
         val webChromeClient = AccompanistWebChromeClient()
+        val cookieManager = CookieManager.getInstance().apply {
+            removeAllCookies(null)
+            flush()
+            setCookie("https://gsm.moip.shop/", "accessToken=${intent.getStringExtra("accessToken")}")
+            setCookie("https://gsm.moip.shop/", "refreshToken=${intent.getStringExtra("refreshToken")}")
+        }
         var waitTime = 0L
         setContent {
             val webViewState = mainViewModel.webViewState
@@ -32,6 +39,9 @@ class MainActivity : ComponentActivity() {
                     chromeClient = webChromeClient,
                     navigator = webViewNavigator,
                     onCreated = {
+                        with(cookieManager) {
+                            setAcceptThirdPartyCookies(it, true)
+                        }
                         with(it) {
                             settings.run {
                                 javaScriptEnabled = true
