@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -31,8 +32,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.gsm.networking.BuildConfig
 import com.gsm.networking.R
+import com.gsm.networking.viewmodel.SignInViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SignInActivity : ComponentActivity() {
+    private val signInViewModel by viewModels<SignInViewModel>()
     private lateinit var googleSignInClient: GoogleSignInClient
     private val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
         .requestServerAuthCode(BuildConfig.CLIENT_ID)
@@ -43,7 +48,7 @@ class SignInActivity : ComponentActivity() {
             if (it.resultCode == -1) {
                 val result = GoogleSignIn.getSignedInAccountFromIntent(it.data).result
                 if (result.email?.endsWith("@gsm.hs.kr") == true) {
-
+                    result.serverAuthCode?.let { signInViewModel.signIn(it) }
                 } else {
                     googleSignInClient.signOut()
                     Toast.makeText(this, "@gsm.hs.kr 계정으로만 접속 가능합니다.", Toast.LENGTH_SHORT).show()
