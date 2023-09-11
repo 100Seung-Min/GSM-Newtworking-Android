@@ -5,16 +5,19 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import com.google.accompanist.web.AccompanistWebChromeClient
 import com.google.accompanist.web.WebView
 import com.gsm.networking.util.CustomWebViewClient
 import com.gsm.networking.viewmodel.MainViewModel
 import com.gsm.networking.ui.theme.GSMNetworkingTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    private val mainViewModel by viewModels<MainViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val mainViewModel = MainViewModel()
         val webViewClient = CustomWebViewClient(this)
         val webChromeClient = AccompanistWebChromeClient()
         var waitTime = 0L

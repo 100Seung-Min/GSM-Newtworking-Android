@@ -5,8 +5,13 @@ import androidx.lifecycle.viewModelScope
 import com.google.accompanist.web.WebContent
 import com.google.accompanist.web.WebViewNavigator
 import com.google.accompanist.web.WebViewState
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class MainViewModel: ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor(
+
+): ViewModel() {
     val webViewState = WebViewState(
         WebContent.Url(
             url = "https://gsm.moip.shop/",
