@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "GSM-Networking"
-include(":app")
+include(":presentation")
