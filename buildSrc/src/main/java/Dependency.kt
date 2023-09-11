@@ -25,6 +25,7 @@ object Dependency {
         const val UI = "androidx.compose.ui:ui:${Version.COMPOSE}"
         const val PREVIEW = "androidx.compose.ui:ui-tooling-preview:${Version.COMPOSE}"
         const val COMPOSE_HILT_NAV = "androidx.hilt:hilt-navigation-compose:${Version.HILT_NAV}"
+        const val MATERIAL3 = "androidx.compose.material3:material3:${Version.COMPOSE_MATERIAL3}"
     }
 
     object Google {

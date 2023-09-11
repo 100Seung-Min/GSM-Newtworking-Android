@@ -62,6 +62,7 @@ dependencies {
     implementation(Dependency.Compose.UI)
     implementation(Dependency.Compose.PREVIEW)
     implementation(Dependency.Compose.COMPOSE_HILT_NAV)
+    implementation(Dependency.Compose.MATERIAL3)
 
     implementation(Dependency.Google.WEB_VIEW)
     implementation(Dependency.Google.OAUTH)

@@ -23,6 +23,7 @@ object Version {
     const val COMPOSE_ACTIVITY = "1.6.1"
     const val COMPOSE = "1.4.3"
     const val HILT_NAV = "1.0.0"
+    const val COMPOSE_MATERIAL3 = "1.0.1"
 
     const val WEB_VIEW = "0.24.13-rc"
     const val OAUTH = "20.1.0"
