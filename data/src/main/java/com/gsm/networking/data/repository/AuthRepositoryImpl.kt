@@ -11,6 +11,14 @@ class AuthRepositoryImpl @Inject constructor(
     private val authRemoteDataSource: AuthRemoteDataSource,
     private val authLocalDataSource: AuthLocalDataSource
 ) : AuthRepository {
-    override suspend fun signIn(code: String): SignInEntity =
-        authRemoteDataSource.signIn(code = code).toEntity()
+    override suspend fun signIn(code: String): SignInEntity {
+        val entity = authRemoteDataSource.signIn(code = code).toEntity()
+        with(authLocalDataSource) {
+            saveAccessToken(entity.accessToken)
+            saveRefreshToken(entity.refreshToken)
+            saveAccessExpiredAt(entity.accessTokenExp)
+            saveRefreshExpiredAt(entity.refreshTokenExp)
+        }
+        return entity
+    }
 }
