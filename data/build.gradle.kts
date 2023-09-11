@@ -40,6 +40,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":domain"))
+
     implementation(Dependency.JavaX.INJECT)
 
     implementation(Dependency.Retrofit.RETROFIT)
