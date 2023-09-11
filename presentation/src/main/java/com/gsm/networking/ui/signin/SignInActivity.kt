@@ -68,13 +68,13 @@ class SignInActivity : ComponentActivity() {
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(text = "GSM\nNetworking", textAlign = TextAlign.Center)
+                Image(painter = painterResource(id = R.drawable.ic_gsm_networking), contentDescription = "gsmNetworking")
                 Spacer(modifier = Modifier.height(40.dp))
                 GoogleSignInButton {
                     signInLauncher.launch(googleSignInClient.signInIntent)
                 }
                 Spacer(modifier = Modifier.height(40.dp))
-                Text(text = "*GSM 계정으로만 접속 가능합니다.")
+                Text(text = "*GSM 계정으로만 접속 가능합니다.", color = Color(0xFF828387))
             }
         }
     }
@@ -83,11 +83,12 @@ class SignInActivity : ComponentActivity() {
         signInViewModel.signInEntity.observe(this) {
             startActivity(
                 Intent(this, MainActivity::class.java).apply {
-                    addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+                    addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
                     putExtra("accessToken", it.accessToken)
                     putExtra("refreshToken", it.refreshToken)
                 }
             )
+            finish()
         }
     }
 }
@@ -100,7 +101,7 @@ private fun GoogleSignInButton(
     Row(
         modifier = Modifier
             .background(color = Color(0xFFF5F6F8), shape = RoundedCornerShape(40.dp))
-            .padding(vertical = 20.dp, horizontal = 12.dp)
+            .padding(vertical = 12.dp, horizontal = 20.dp)
             .clickable(onClick = onClick),
         verticalAlignment = Alignment.CenterVertically
     ) {
