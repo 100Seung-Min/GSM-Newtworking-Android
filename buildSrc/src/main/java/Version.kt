@@ -10,13 +10,15 @@ object Version {
     val JAVA_VERSION = JavaVersion.VERSION_1_8
 
     const val GRADLE_ANDROID = "7.4.2"
-    const val GRADLE_KOTLIN = "1.7.20"
+    const val GRADLE_KOTLIN = "1.8.10"
     const val HILT = "2.44"
 
     const val KOTLINX_COROUTINES = "1.6.4"
 
     const val CORE_KTX = "1.9.0"
     const val LIFECYCLE_KTX = "2.5.1"
+    const val APP_COMPAT = "1.6.0"
+    const val PREFERENCE_KTX = "1.2.0"
 
     const val COMPOSE_ACTIVITY = "1.6.1"
     const val COMPOSE = "1.4.3"
