@@ -16,3 +16,4 @@ rootProject.name = "GSM-Networking"
 include(":presentation")
 include(":domain")
 include(":data")
+include(":di")
