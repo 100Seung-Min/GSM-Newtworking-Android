@@ -80,12 +80,13 @@ class SignInActivity : ComponentActivity() {
     }
 
     private fun observeLoginState() {
-        signInViewModel.loginState.observe(this) {
-            if (it) startActivity(
-                Intent(
-                    this,
-                    MainActivity::class.java
-                ).addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+        signInViewModel.signInEntity.observe(this) {
+            startActivity(
+                Intent(this, MainActivity::class.java).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+                    putExtra("accessToken", it.accessToken)
+                    putExtra("refreshToken", it.refreshToken)
+                }
             )
         }
     }
