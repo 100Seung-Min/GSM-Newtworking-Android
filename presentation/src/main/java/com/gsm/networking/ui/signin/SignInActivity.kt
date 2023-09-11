@@ -1,5 +1,6 @@
 package com.gsm.networking.ui.signin
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -32,6 +33,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.gsm.networking.BuildConfig
 import com.gsm.networking.R
+import com.gsm.networking.ui.main.MainActivity
 import com.gsm.networking.viewmodel.SignInViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -58,6 +60,7 @@ class SignInActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        observeLoginState()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
         setContent {
             Column(
@@ -73,6 +76,17 @@ class SignInActivity : ComponentActivity() {
                 Spacer(modifier = Modifier.height(40.dp))
                 Text(text = "*GSM 계정으로만 접속 가능합니다.")
             }
+        }
+    }
+
+    private fun observeLoginState() {
+        signInViewModel.loginState.observe(this) {
+            if (it) startActivity(
+                Intent(
+                    this,
+                    MainActivity::class.java
+                ).addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+            )
         }
     }
 }
