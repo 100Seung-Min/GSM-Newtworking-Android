@@ -25,14 +25,14 @@ class AuthLocalDataSourceImpl @Inject constructor(
 
     override fun fetchAccessExpiredAt(): LocalDateTime? =
         authPreference.fetchAccessExpiredAt()
-            ?.let { LocalDateTime.parse(it, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH-mm-ss")) }
+            ?.let { LocalDateTime.parse(it, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss")) }
 
     override fun saveRefreshExpiredAt(refreshExpiredAt: String) =
         authPreference.saveRefreshExpiredAt(refreshExpiredAt = refreshExpiredAt)
 
     override fun fetchRefreshExpiredAt(): LocalDateTime? =
         authPreference.fetchRefreshExpiredAt()
-            ?.let { LocalDateTime.parse(it, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH-mm-ss")) }
+            ?.let { LocalDateTime.parse(it, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss")) }
 
     override fun clearToken() = with(authPreference) {
         clearAccessToken()
