@@ -1,4 +1,4 @@
-package com.gsm.networking
+package com.gsm.networking.ui.main
 
 import android.os.Bundle
 import android.widget.Toast
@@ -7,6 +7,8 @@ import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import com.google.accompanist.web.AccompanistWebChromeClient
 import com.google.accompanist.web.WebView
+import com.gsm.networking.util.CustomWebViewClient
+import com.gsm.networking.viewmodel.MainViewModel
 import com.gsm.networking.ui.theme.GSMNetworkingTheme
 
 class MainActivity : ComponentActivity() {

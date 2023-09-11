@@ -1,4 +1,4 @@
-package com.gsm.networking
+package com.gsm.networking.util
 
 import android.content.Context
 import android.content.Intent

@@ -1,4 +1,4 @@
-package com.gsm.networking
+package com.gsm.networking.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -1,4 +1,4 @@
-package com.gsm.networking
+package com.gsm.networking.ui.signin
 
 import android.os.Bundle
 import android.widget.Toast
@@ -29,6 +29,8 @@ import androidx.compose.ui.unit.dp
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.gsm.networking.BuildConfig
+import com.gsm.networking.R
 
 class SignInActivity : ComponentActivity() {
     private lateinit var googleSignInClient: GoogleSignInClient
