@@ -55,4 +55,8 @@ object Dependency {
         const val COMPOSE_TOOL = "androidx.compose.ui:ui-tooling:${Version.COMPOSE}"
         const val COMPOSE_MANIFEST = "androidx.compose.ui:ui-test-manifest:${Version.COMPOSE}"
     }
+
+    object JavaX {
+        const val INJECT = "javax.inject:javax.inject:${Version.INJECT}"
+    }
 }

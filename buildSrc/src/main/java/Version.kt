@@ -32,4 +32,6 @@ object Version {
     const val MOCKITO_KOTLIN = "4.1.0"
     const val ANDROID_JUNIT = "1.1.2"
     const val ESPRESSO_CORE = "3.3.0"
+
+    const val INJECT = "1"
 }
