@@ -16,13 +16,13 @@ class SignInViewModel @Inject constructor(
     private val signInUseCase: SignInUseCase,
     private val refreshUseCase: RefreshUseCase
 ) : ViewModel() {
-    private val _signInEntity = MutableLiveData<SignInEntity>()
-    val signInEntity: LiveData<SignInEntity> = _signInEntity
+    private val _signInEntity = MutableLiveData<SignInEntity?>()
+    val signInEntity: LiveData<SignInEntity?> = _signInEntity
 
     init {
         viewModelScope.launch {
             refreshUseCase().onSuccess {
-                it?.let { _signInEntity.value = it }
+                _signInEntity.value = it
             }.onFailure {
             }
         }

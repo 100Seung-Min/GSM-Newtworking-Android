@@ -61,7 +61,10 @@ class SignInActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        observeLoginState()
+        var isUnAuthorization = false
+        observeLoginState {
+            isUnAuthorization = true
+        }
         googleSignInClient = GoogleSignIn.getClient(this, gso)
         setContent {
             GSMNetworkingTheme {
@@ -71,29 +74,34 @@ class SignInActivity : ComponentActivity() {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Image(painter = painterResource(id = R.drawable.ic_gsm_networking), contentDescription = "gsmNetworking")
-                    Spacer(modifier = Modifier.height(80.dp))
-                    GoogleSignInButton {
-                        signInLauncher.launch(googleSignInClient.signInIntent)
+                    if (isUnAuthorization) {
+                        Spacer(modifier = Modifier.height(80.dp))
+                        GoogleSignInButton {
+                            signInLauncher.launch(googleSignInClient.signInIntent)
+                        }
+                        Spacer(modifier = Modifier.height(40.dp))
+                        Text(text = "*GSM 계정으로만 접속 가능합니다.", color = Color(0xFF828387), style = GSMNetworkingTheme.typography.subtitle)
                     }
-                    Spacer(modifier = Modifier.height(40.dp))
-                    Text(text = "*GSM 계정으로만 접속 가능합니다.", color = Color(0xFF828387), style = GSMNetworkingTheme.typography.subtitle)
                 }
             }
         }
     }
 
-    private fun observeLoginState() {
+    private fun observeLoginState(unAuthorizationAction: () -> Unit) =
         signInViewModel.signInEntity.observe(this) {
-            startActivity(
-                Intent(this, MainActivity::class.java).apply {
-                    addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
-                    putExtra("accessToken", it.accessToken)
-                    putExtra("refreshToken", it.refreshToken)
-                }
-            )
-            finish()
+            if (it == null) {
+                unAuthorizationAction()
+            } else {
+                startActivity(
+                    Intent(this, MainActivity::class.java).apply {
+                        addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                        putExtra("accessToken", it.accessToken)
+                        putExtra("refreshToken", it.refreshToken)
+                    }
+                )
+                finish()
+            }
         }
-    }
 }
 
 @Composable
