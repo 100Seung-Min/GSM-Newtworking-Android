@@ -19,3 +19,9 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keep class com.gsm.networking.domain** {*;}
+-keep interface com.gsm.networking.domain** {*;}
+
+-keep class com.gsm.networking.data** {*;}
+-keep interface com.gsm.networking.data** {*;}
