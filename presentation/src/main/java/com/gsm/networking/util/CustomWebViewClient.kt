@@ -6,6 +6,7 @@ import android.graphics.Bitmap
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import com.google.accompanist.web.AccompanistWebViewClient
+import com.gsm.networking.BuildConfig
 
 class CustomWebViewClient(private val context: Context) : AccompanistWebViewClient() {
     override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
@@ -22,7 +23,7 @@ class CustomWebViewClient(private val context: Context) : AccompanistWebViewClie
                 type = "plain/text"
                 data = request?.url
             }
-        } else if (request?.url.toString().contains("https://gsm.moip.shop/")) {
+        } else if (request?.url.toString().contains("gsm-networking")) {
             return super.shouldOverrideUrlLoading(view, request)
         } else {
             Intent(Intent.ACTION_VIEW, request?.url)

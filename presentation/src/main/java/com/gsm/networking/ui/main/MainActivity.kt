@@ -9,6 +9,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import com.google.accompanist.web.AccompanistWebChromeClient
 import com.google.accompanist.web.WebView
+import com.gsm.networking.BuildConfig
 import com.gsm.networking.util.CustomWebViewClient
 import com.gsm.networking.viewmodel.MainViewModel
 import com.gsm.networking.ui.theme.GSMNetworkingTheme
@@ -24,8 +25,8 @@ class MainActivity : ComponentActivity() {
         val cookieManager = CookieManager.getInstance().apply {
             removeAllCookies(null)
             flush()
-            setCookie("https://gsm.moip.shop/", "accessToken=${intent.getStringExtra("accessToken")}")
-            setCookie("https://gsm.moip.shop/", "refreshToken=${intent.getStringExtra("refreshToken")}")
+            setCookie(BuildConfig.WEBVIEW_URL, "accessToken=${intent.getStringExtra("accessToken")}")
+            setCookie(BuildConfig.WEBVIEW_URL, "refreshToken=${intent.getStringExtra("refreshToken")}")
         }
         var waitTime = 0L
         setContent {
