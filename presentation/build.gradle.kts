@@ -23,6 +23,11 @@ android {
             "CLIENT_ID",
             gradleLocalProperties(rootDir).getProperty("CLIENT_ID")
         )
+        buildConfigField(
+            "String",
+            "WEBVIEW_URL",
+            gradleLocalProperties(rootDir).getProperty("WEBVIEW_URL")
+        )
     }
 
     buildTypes {
