@@ -23,12 +23,14 @@ class CustomWebViewClient(private val context: Context) : AccompanistWebViewClie
                 type = "plain/text"
                 data = request?.url
             }
-        } else if (request?.url.toString().contains("gsm-networking")) {
+        } else if (request?.url.toString()
+                .let { it.contains("gsm-networking") && it.contains("notion").not() }
+        ) {
             return super.shouldOverrideUrlLoading(view, request)
         } else {
             Intent(Intent.ACTION_VIEW, request?.url)
         }
-        intent?.let { context.startActivity(it) }
+        intent.let { context.startActivity(it) }
         return true
     }
 }
