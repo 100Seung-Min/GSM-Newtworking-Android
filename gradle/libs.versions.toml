@@ -1,0 +1,72 @@
+[versions]
+versionCode = "2"
+versionName = "1.0.0"
+compileSdk = "34"
+targetSdk = "34"
+minSdk = "28"
+pluginAndroid = "8.1.2"
+pluginKotlin = "1.9.10"
+ksp = "1.9.10-1.0.13"
+hilt = "2.48"
+coroutines = "1.7.1"
+core = "1.12.0"
+lifecycle = "2.6.2"
+appcompat = "1.6.1"
+preference = "1.2.1"
+composeActivity = "1.8.0"
+compose = "1.5.3"
+material3 = "1.1.2"
+hiltNav = "1.0.0"
+webview = "0.24.13-rc"
+oauth = "20.1.0"
+retrofit = "2.9.0"
+okhttp = "4.10.0"
+junit = "4.13.2"
+mockitoKotlin = "4.1.0"
+androidJunit = "1.1.5"
+espressoCore = "3.5.1"
+inject = "1"
+
+[libraries]
+plugin-android = { module = "com.android.tools.build:gradle", version.ref = "pluginAndroid" }
+plugin-hilt = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }
+plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "pluginKotlin" }
+plugin-ksp = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+androidx-core = { module = "androidx.core:core-ktx", version.ref = "core" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+androidx-preference = { module = "androidx.preference:preference-ktx", version.ref = "preference" }
+androidx-lifecycle = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
+coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+compose-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
+compose-activity = { module = "androidx.activity:activity-compose", version.ref = "composeActivity" }
+compose-nav = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNav" }
+compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
+compose-tool = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+compose-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
+compose-test = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose" }
+webview = { module = "com.google.accompanist:accompanist-webview", version.ref = "webview" }
+oauth = { module = "com.google.android.gms:play-services-auth", version.ref = "oauth" }
+hilt = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+okhttp-logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
+inject = { module = "javax.inject:javax.inject", version.ref = "inject" }
+test-junit = { module = "junit:junit", version.ref = "junit" }
+test-mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockitoKotlin" }
+test-anroid-junit = { module = "androidx.test.ext:junit", version.ref = "androidJunit" }
+test-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoCore" }
+
+[plugins]
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+
+[bundles]
+coroutine = ["coroutines-core", "coroutines-android"]
+compose = ["compose-activity", "compose-ui", "compose-preview", "compose-material3", "compose-nav"]
+compose-debug = ["compose-tool", "compose-manifest"]
+retrofit = ["retrofit", "retrofit-converter-gson"]
+okhttp = ["okhttp", "okhttp-logging-interceptor"]
