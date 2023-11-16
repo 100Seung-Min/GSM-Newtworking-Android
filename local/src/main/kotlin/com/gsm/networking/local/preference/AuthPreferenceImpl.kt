@@ -1,9 +1,10 @@
-package com.gsm.networking.data.local.preference
+package com.gsm.networking.local.preference
 
 import android.content.SharedPreferences
-import com.gsm.networking.data.local.util.clearString
-import com.gsm.networking.data.local.util.fetchString
-import com.gsm.networking.data.local.util.saveString
+import com.gsm.networking.data.local.preference.AuthPreference
+import com.gsm.networking.local.util.clearString
+import com.gsm.networking.local.util.fetchString
+import com.gsm.networking.local.util.saveString
 import javax.inject.Inject
 
 class AuthPreferenceImpl @Inject constructor(

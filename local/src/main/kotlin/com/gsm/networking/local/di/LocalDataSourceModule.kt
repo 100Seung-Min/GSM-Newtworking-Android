@@ -1,7 +1,7 @@
-package com.gsm.networking.di
+package com.gsm.networking.local.di
 
 import com.gsm.networking.data.local.datasource.AuthLocalDataSource
-import com.gsm.networking.data.local.datasource.AuthLocalDataSourceImpl
+import com.gsm.networking.local.datasource.AuthLocalDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -12,6 +12,6 @@ import dagger.hilt.components.SingletonComponent
 abstract class LocalDataSourceModule {
     @Binds
     abstract fun bindAuthLocalDataSource(
-        authLocalDataSourceImpl: AuthLocalDataSourceImpl
+        authLocalDataSourceImpl: AuthLocalDataSourceImpl,
     ): AuthLocalDataSource
 }

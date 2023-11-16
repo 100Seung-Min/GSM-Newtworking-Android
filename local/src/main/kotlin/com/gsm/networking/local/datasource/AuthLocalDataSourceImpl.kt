@@ -1,5 +1,6 @@
-package com.gsm.networking.data.local.datasource
+package com.gsm.networking.local.datasource
 
+import com.gsm.networking.data.local.datasource.AuthLocalDataSource
 import com.gsm.networking.data.local.preference.AuthPreference
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter

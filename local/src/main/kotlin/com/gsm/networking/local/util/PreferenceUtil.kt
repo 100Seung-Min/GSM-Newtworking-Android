@@ -1,4 +1,4 @@
-package com.gsm.networking.data.local.util
+package com.gsm.networking.local.util
 
 import android.content.SharedPreferences
 

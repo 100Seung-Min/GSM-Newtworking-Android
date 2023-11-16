@@ -1,4 +1,4 @@
-package com.gsm.networking.di
+package com.gsm.networking.local.di
 
 import android.content.Context
 import android.content.SharedPreferences

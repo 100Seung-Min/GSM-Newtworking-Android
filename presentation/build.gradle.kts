@@ -22,8 +22,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":domain"))
-    implementation(project(":di"))
     implementation(libs.webview)
     implementation(libs.oauth)
     implementation(libs.bundles.retrofit)

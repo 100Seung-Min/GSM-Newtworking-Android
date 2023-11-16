@@ -1,7 +1,6 @@
-package com.gsm.networking.di
+package com.gsm.networking.local.di
 
 import com.gsm.networking.data.local.preference.AuthPreference
-import com.gsm.networking.data.local.preference.AuthPreferenceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -12,6 +11,6 @@ import dagger.hilt.components.SingletonComponent
 abstract class PreferenceModule {
     @Binds
     abstract fun bindAuthPreference(
-        authPreferenceImpl: AuthPreferenceImpl
+        authPreferenceImpl: com.gsm.networking.local.preference.AuthPreferenceImpl
     ): AuthPreference
 }
