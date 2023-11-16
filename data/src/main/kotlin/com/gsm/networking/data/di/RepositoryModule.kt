@@ -1,4 +1,4 @@
-package com.gsm.networking.di
+package com.gsm.networking.data.di
 
 import com.gsm.networking.data.repository.AuthRepositoryImpl
 import com.gsm.networking.domain.repository.AuthRepository
