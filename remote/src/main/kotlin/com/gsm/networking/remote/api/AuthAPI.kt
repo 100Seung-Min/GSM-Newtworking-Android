@@ -1,4 +1,4 @@
-package com.gsm.networking.data.remote.api
+package com.gsm.networking.remote.api
 
 import com.gsm.networking.data.remote.response.SignInResponse
 import retrofit2.http.Header

@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/local" />
             <option value="$PROJECT_DIR$/presentation" />
+            <option value="$PROJECT_DIR$/remote" />
           </set>
         </option>
       </GradleProjectSettings>

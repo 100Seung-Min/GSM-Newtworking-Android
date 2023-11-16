@@ -1,6 +1,7 @@
-package com.gsm.networking.di
+package com.gsm.networking.remote.di
 
-import com.gsm.networking.data.remote.api.AuthAPI
+import com.gsm.networking.remote.BuildConfig
+import com.gsm.networking.remote.api.AuthAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,5 +27,7 @@ object NetworkModule {
         .build()
 
     @Provides
-    fun provideAuthAPI(retrofit: Retrofit): AuthAPI = retrofit.create(AuthAPI::class.java)
+    fun provideAuthAPI(retrofit: Retrofit): AuthAPI = retrofit.create(
+        AuthAPI::class.java
+    )
 }
