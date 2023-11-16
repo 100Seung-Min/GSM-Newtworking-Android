@@ -110,7 +110,7 @@ private fun GoogleSignInButton(
     onClick: () -> Unit
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .background(color = Color(0xFFF5F6F8), shape = RoundedCornerShape(40.dp))
             .padding(vertical = 12.dp, horizontal = 20.dp)
             .clickable(onClick = onClick),
