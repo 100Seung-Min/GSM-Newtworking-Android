@@ -13,8 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "GSM-Networking"
-include(":presentation")
-include(":domain")
-include(":data")
-include(":local")
-include(":remote")
+include(":app")
