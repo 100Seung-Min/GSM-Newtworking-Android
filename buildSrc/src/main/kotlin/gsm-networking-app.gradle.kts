@@ -6,14 +6,13 @@ val libs = versionCatalog.named("libs")
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    id("dagger.hilt.android.plugin")
-    id("com.google.devtools.ksp")
 }
 
 android {
     compileSdk = libs.findVersion("compileSdk").get().requiredVersion.toInt()
-
     defaultConfig {
+        versionCode = libs.findVersion("versionCode").get().requiredVersion.toInt()
+        versionName = libs.findVersion("versionName").get().requiredVersion
         minSdk = libs.findVersion("minSdk").get().requiredVersion.toInt()
         targetSdk = libs.findVersion("targetSdk").get().requiredVersion.toInt()
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -31,9 +30,6 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion = libs.findVersion("compose").get().requiredVersion
-    }
-    hilt {
-        enableAggregatingTask = true
     }
     buildTypes {
         getByName("release") {
@@ -60,12 +56,11 @@ android {
 }
 
 dependencies {
+    implementation(libs.findLibrary("play.update").get())
     implementation(libs.findLibrary("androidx.core").get())
     implementation(libs.findLibrary("androidx.lifecycle").get())
     implementation(libs.findBundle("coroutine").get())
     implementation(libs.findBundle("compose").get())
-    implementation(libs.findLibrary("hilt").get())
-    ksp(libs.findLibrary("hilt.compiler").get())
     debugImplementation(libs.findBundle("compose.debug").get())
     androidTestImplementation(libs.findLibrary("compose.test").get())
 }
