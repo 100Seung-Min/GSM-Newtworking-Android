@@ -1,5 +1,5 @@
 [versions]
-versionCode = "7"
+versionCode = "8"
 versionName = "1.0.0"
 compileSdk = "34"
 targetSdk = "34"
