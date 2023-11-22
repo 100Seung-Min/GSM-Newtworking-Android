@@ -14,7 +14,6 @@ fun CheckBackHandler(
     var waitTime = 0L
     val context = LocalContext.current
     BackHandler {
-        println("안녕")
         if (webViewNavigator != null && webViewNavigator.canGoBack) {
             webViewNavigator.navigateBack()
         } else {
