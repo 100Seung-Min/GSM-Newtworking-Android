@@ -20,7 +20,9 @@ class CustomWebViewClient(
 
     override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
         val url = request?.url?.toString() ?: ""
-        if (url.contains("accounts.google.com") && url.contains("gsm-networking").not()) {
+        if ((url.contains("accounts.google.com") && url.contains("gsm-networking")
+                .not()) || (url.contains("gwangya") && url.contains("auth").not())
+        ) {
             webViewNavigator.reload()
             return true
         }
